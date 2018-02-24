@@ -81,7 +81,7 @@ def train(train_file, algorithm):
     checkpointer = ModelCheckpoint(
         filepath=resource_dir_path + "/models/checkpoints/" + algorithm + "-" + "{epoch:02d}-" + str(
             int(round(time.time() * 1000))) + ".hdf5", verbose=1, save_best_only=True)
-    model.fit(X_train, np_utils.to_categorical(y_train, len(ind_to_class)), validation_split=0.2, verbose=1,
+    model.fit(X_train, np_utils.to_categorical(y_train, len(ind_to_class)), validation_split=0.2, verbose=2,
               callbacks=[checkpointer, early_stopping])
 
 
